@@ -1,6 +1,6 @@
 {
 	"name": "veams-plugin-media-query-handler",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "The VeamsMediaQueryHandler plugin provides to you a possibility to get the current media query name from your css.",
 	"main": "lib/index.js",
 	"browserify": {

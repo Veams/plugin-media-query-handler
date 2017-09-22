@@ -47,10 +47,8 @@ const VeamsMediaQueryHandler = {
 				}
 			}
 
-			if (width !== Veams.detections.width) {
-				Veams.detections.width = width;
-				Veams.Vent.trigger(Veams.EVENTS.resize, e);
-			}
+			Veams.detections.width = width;
+			Veams.Vent.trigger(Veams.EVENTS.resize, e);
 		}, this.options.delay);
 	}
 };

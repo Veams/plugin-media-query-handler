@@ -1,3 +1,6 @@
+### v1.0.2
+- Trigger resize event on resize without comparing width
+
 ### v1.0.1
 - Update description
 
