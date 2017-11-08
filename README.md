@@ -37,11 +37,12 @@ import Veams from 'veams';
 import VeamsModules from 'veams/lib/plugins/modules';
 
 // Intialize core of Veams
-Veams.initialize();
-
-// Add plugins to the Veams system
-Veams.use(VeamsMediaQueryHandler, {
-    delay: 200
+// Intialize core of Veams
+Veams.onInitialize(() => {
+	// Add plugins to the Veams system
+	Veams.use(VeamsMediaQueryHandler, {
+	    delay: 200
+	});
 });
 ```
 
