@@ -1,10 +1,59 @@
-# VeamsMediaQueryHandler plugin
+# Veams Media Query Handler Plugin (`@veams/plugin-media-query-handler`)
 
-The VeamsMediaQueryHandler plugin provides to you a possibility to get the current media query name from your css.
+The Media Query Handler Plugin provides to you the possibility to get the current media query name from your css.
 
-If you want to use the media query support then just add the following lines to a custom scss file and modify it like you want:
+TypeScript is supported. 
 
-``` scss
+## Installation
+
+### NPM
+
+``` bash 
+npm install @veams/plugin-media-query-handler --save
+```
+
+### Yarn 
+
+``` bash 
+yarn add @veams/plugin-media-query-handler
+```
+
+## Requirements
+
+It makes sense to have the Veams Vent Plugin in place in order to work with that plugin. 
+Otherwise you can not subscribe to a change of the media query handler and need to add this functionality manually.
+
+Take a look at [@veams/plugin-vent](https://github.com/Veams/plugin-vent).
+
+## Usage
+
+```js
+import Veams from '@veams/core';
+import VeamsModules from '@veams/plugin-media-query-handler';
+
+// Intialize core of Veams
+Veams.onInitialize(() => {
+   	// Add plugins to the Veams system
+	Veams.use(VeamsMediaQueryHandler, {
+        delay: 200
+    });
+});
+```
+
+### Options
+
+You can pass a second parameter with an options object. Available options are: 
+
+- `mediaQueryProp` {String} ['font-family'] - Define a media query property which you have added to the head element.
+- `delay` {Number} [300] - Define the delay value for the throttle handling which is responsible to trigger an event and set the `currentMedia` value.
+
+### SCSS
+
+If you want to use the media query support then you can choose from 3 different approaches: 
+
+#### 1. Add the following lines to a custom scss file and modify it like you want:
+
+```scss
 head {
 	font-family: desktop;
 
@@ -30,25 +79,41 @@ head {
 }
 ```
 
-Then you only need to import and use the plugin from the Veams package: 
+#### 2. Automate it like that: 
 
-```js
-import Veams from 'veams';
-import VeamsModules from 'veams/lib/plugins/modules';
+```scss
+head {
 
-// Intialize core of Veams
-// Intialize core of Veams
-Veams.onInitialize(() => {
-	// Add plugins to the Veams system
-	Veams.use(VeamsMediaQueryHandler, {
-	    delay: 200
-	});
-});
+	@if ($min-width) {
+		font-family: unquote(nth(nth($breakpoints, 1), 1));
+	} @else {
+		font-family: unquote(nth(nth($breakpoints, length($breakpoints)), 1));
+	}
+
+	@each $breakpoint in $breakpoints {
+		$name: nth($breakpoint, 1);
+		$size: nth($breakpoint, 2);
+
+		@include bp($size) {
+			font-family: unquote($name);
+		}
+	}
+}
 ```
 
-_Options:_
+_Be sure you have the `Veams Core` imported for `variables`, `maps` and `includes`._ 
 
-You can pass a second parameter with an options object. Available options are: 
+#### 3. Import the file from that library:
 
-- `mediaQueryProp` {String} ['font-family'] - Define a media query property which you have added to the head element.
-- `delay` {Number} [300] - Define the delay value for the throttle handling which is responsible to trigger an event and set the `currentMedia` value.
+```scss
+@import "~@veams/plugin-media-query-handler/scss/media-query-handler";
+```
+
+
+### Api 
+
+With that in place you can access the current media query breakpoint in your JavaScipt: 
+
+```js
+console.log(Veams.currentMedia);
+```

@@ -1,0 +1,17 @@
+head {
+
+	@if ($min-width) {
+		font-family: unquote(nth(nth($breakpoints, 1), 1));
+	} @else {
+		font-family: unquote(nth(nth($breakpoints, length($breakpoints)), 1));
+	}
+
+	@each $breakpoint in $breakpoints {
+		$name: nth($breakpoint, 1);
+		$size: nth($breakpoint, 2);
+
+		@include bp($size) {
+			font-family: unquote($name);
+		}
+	}
+}

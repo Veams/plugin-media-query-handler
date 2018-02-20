@@ -1,5 +1,5 @@
 {
-	"name": "veams-plugin-media-query-handler",
+	"name": "@veams/plugin-media-query-handler",
 	"version": "1.0.2",
 	"description": "The VeamsMediaQueryHandler plugin provides to you a possibility to get the current media query name from your css.",
 	"main": "./lib/index.js",
@@ -14,7 +14,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/veams/veams-plugin-media-query-handler.git"
+		"url": "https://github.com/veams/plugin-media-query-handler.git"
 	},
 	"keywords": [
 		"veams",
@@ -23,7 +23,7 @@
 	"author": "Sebastian Fitzner",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/veams/veams-plugin-media-query-handler/issues"
+		"url": "https://github.com/veams/plugin-media-query-handler/issues"
 	},
 	"homepage": "http://veams.org/",
 	"dependencies": {
