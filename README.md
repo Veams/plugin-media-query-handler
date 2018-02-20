@@ -29,7 +29,7 @@ Take a look at [@veams/plugin-vent](https://github.com/Veams/plugin-vent).
 
 ```js
 import Veams from '@veams/core';
-import VeamsModules from '@veams/plugin-media-query-handler';
+import VeamsMediaQueryHandler from '@veams/plugin-media-query-handler';
 
 // Intialize core of Veams
 Veams.onInitialize(() => {
