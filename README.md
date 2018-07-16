@@ -27,7 +27,7 @@ Take a look at [@veams/plugin-vent](https://github.com/Veams/plugin-vent).
 
 ## Usage
 
-```js
+``` js
 import Veams from '@veams/core';
 import VeamsMediaQueryHandler from '@veams/plugin-media-query-handler';
 
@@ -53,7 +53,7 @@ If you want to use the media query support then you can choose from 3 different 
 
 #### 1. Add the following lines to a custom scss file and modify it like you want:
 
-```scss
+``` scss
 head {
 	font-family: desktop;
 
@@ -81,7 +81,7 @@ head {
 
 #### 2. Automate it like that: 
 
-```scss
+``` scss
 head {
 
 	@if ($min-width) {
@@ -105,7 +105,7 @@ _Be sure you have the `Veams Core` imported for `variables`, `maps` and `include
 
 #### 3. Import the file from that library:
 
-```scss
+``` scss
 @import "~@veams/plugin-media-query-handler/scss/media-query-handler";
 ```
 
@@ -114,6 +114,6 @@ _Be sure you have the `Veams Core` imported for `variables`, `maps` and `include
 
 With that in place you can access the current media query breakpoint in your JavaScipt: 
 
-```js
+``` js
 console.log(Veams.currentMedia);
 ```

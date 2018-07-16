@@ -3,8 +3,8 @@
 /**
  * Imports
  */
-import extend from "@veams/helpers/lib/object/extend";
-import throttle from "@veams/helpers/lib/operator/throttle";
+import extend from '@veams/helpers/lib/object/extend';
+import throttle from '@veams/helpers/lib/operator/throttle';
 
 /**
  * Interfaces
@@ -67,9 +67,12 @@ const VeamsMediaQueryHandler: MediaQueryHandlerPlugin = {
 				}
 			}
 
-			Veams.detections.width = width;
-			if (Veams.Vent) {
-				Veams.Vent.trigger(Veams.EVENTS.resize, e);
+			if (Veams.detections.width !== width) {
+				Veams.detections.width = width;
+
+				if (Veams.Vent) {
+					Veams.Vent.trigger(Veams.EVENTS.resize, e);
+				}
 			}
 		}, this.options.delay);
 	}
