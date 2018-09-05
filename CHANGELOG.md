@@ -1,3 +1,6 @@
+### v1.1.0
+- Trigger resizeFull and resizeVertical
+
 ### v1.0.4
 - Fix resize event trigger only when width is changed.
 
