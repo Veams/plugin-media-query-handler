@@ -1,8 +1,15 @@
+[//]: # ({{#wrapWith "content-section"}})
+
+[//]: #     ({{#wrapWith "grid-row"}})
+[//]: #         ({{#wrapWith "grid-col" colClasses="is-col-mobile-l-8"}})
+
 # Veams Media Query Handler Plugin (`@veams/plugin-media-query-handler`)
 
 The Media Query Handler Plugin provides to you the possibility to get the current media query name from your css.
 
 TypeScript is supported. 
+
+-----------------
 
 ## Installation
 
@@ -18,12 +25,16 @@ npm install @veams/plugin-media-query-handler --save
 yarn add @veams/plugin-media-query-handler
 ```
 
+-----------------
+
 ## Requirements
 
 It makes sense to have the Veams Vent Plugin in place in order to work with that plugin. 
 Otherwise you can not subscribe to a change of the media query handler and need to add this functionality manually.
 
 Take a look at [@veams/plugin-vent](https://github.com/Veams/plugin-vent).
+
+-----------------
 
 ## Usage
 
@@ -44,8 +55,10 @@ Veams.onInitialize(() => {
 
 You can pass a second parameter with an options object. Available options are: 
 
-- `mediaQueryProp` {String} ['font-family'] - Define a media query property which you have added to the head element.
-- `delay` {Number} [300] - Define the delay value for the throttle handling which is responsible to trigger an event and set the `currentMedia` value.
+| Option | Type | Default | Description |
+|:--- |:---:|:---:|:--- |
+| `mediaQueryProp` | {String} | ['font-family'] | Define a media query property which you have added to the head element. |
+| `delay` | {Number} | [300] | Define the delay value for the throttle handling which is responsible to trigger an event and set the `currentMedia` value. |
 
 ### SCSS
 
@@ -109,7 +122,6 @@ _Be sure you have the `Veams Core` imported for `variables`, `maps` and `include
 @import "~@veams/plugin-media-query-handler/scss/media-query-handler";
 ```
 
-
 ### Api 
 
 With that in place you can access the current media query breakpoint in your JavaScipt: 
@@ -117,3 +129,8 @@ With that in place you can access the current media query breakpoint in your Jav
 ``` js
 console.log(Veams.currentMedia);
 ```
+
+[//]: #         ({{/wrapWith}})
+[//]: #     ({{/wrapWith}})
+
+[//]: # ({{/wrapWith}})
